@@ -1,5 +1,6 @@
 package ice.mobark.bottomsheetexample;
 
+import android.app.Dialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -55,32 +56,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onClickBottomSheet(View v) {
-//            showDialog(0);
-        new BottomSheet.Builder(this).title("BottomSheet").sheet(R.menu.bottom_sheet).listener(new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                if (which == R.id.view1) {
-                    Toast.makeText(getApplicationContext(), "View1 is click", Toast.LENGTH_LONG).show();
-                } else if (which == R.id.view2) {
-                    Toast.makeText(getApplicationContext(), "View2 is click", Toast.LENGTH_LONG).show();
-                } else if (which == R.id.view3) {
-                    Toast.makeText(getApplicationContext(), "View3 is click", Toast.LENGTH_LONG).show();
-                } else if (which == R.id.view4) {
-                    Toast.makeText(getApplicationContext(), "View4 is click", Toast.LENGTH_LONG).show();
-                } else if (which == R.id.view5) {
-                    Toast.makeText(getApplicationContext(), "View5 is click", Toast.LENGTH_LONG).show();
-                } else {
-                    Toast.makeText(getApplicationContext(), "View6 is click", Toast.LENGTH_LONG).show();
-                }
-
-            }
-        }).show();
-
-    }
-
-//    @Override
-//    protected Dialog onCreateDialog(int id) {
-//        BottomSheet bottomSheet = new BottomSheet.Builder(this).title("BottomSheet").sheet(R.menu.bottom_sheet).listener(new DialogInterface.OnClickListener() {
+            showDialog(0);
+//        new BottomSheet.Builder(this).title("BottomSheet").sheet(R.menu.bottom_sheet).listener(new DialogInterface.OnClickListener() {
 //            @Override
 //            public void onClick(DialogInterface dialog, int which) {
 //                if (which == R.id.view1) {
@@ -99,6 +76,30 @@ public class MainActivity extends AppCompatActivity {
 //
 //            }
 //        }).show();
-//        return bottomSheet;
-//    }
+
+    }
+
+    @Override
+    protected Dialog onCreateDialog(int id) {
+        BottomSheet bottomSheet = new BottomSheet.Builder(this).title("BottomSheet").sheet(R.menu.bottom_sheet).listener(new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                if (which == R.id.view1) {
+                    Toast.makeText(getApplicationContext(), "View1 is click", Toast.LENGTH_LONG).show();
+                } else if (which == R.id.view2) {
+                    Toast.makeText(getApplicationContext(), "View2 is click", Toast.LENGTH_LONG).show();
+                } else if (which == R.id.view3) {
+                    Toast.makeText(getApplicationContext(), "View3 is click", Toast.LENGTH_LONG).show();
+                } else if (which == R.id.view4) {
+                    Toast.makeText(getApplicationContext(), "View4 is click", Toast.LENGTH_LONG).show();
+                } else if (which == R.id.view5) {
+                    Toast.makeText(getApplicationContext(), "View5 is click", Toast.LENGTH_LONG).show();
+                } else {
+                    Toast.makeText(getApplicationContext(), "View6 is click", Toast.LENGTH_LONG).show();
+                }
+
+            }
+        }).show();
+        return bottomSheet;
+    }
 }
